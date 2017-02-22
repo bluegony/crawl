@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%-5level][%F%L] - %m%n</pattern>
+        </layout>
+    </appender>
+
+    <!--<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<file>/app/tomcat/logs/bms/bms.log</file>-->
+        <!--&lt;!&ndash; Support multiple-JVM writing to the same log file &ndash;&gt;-->
+        <!--<prudent>true</prudent>-->
+
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--<fileNamePattern>/app/tomcat/logs/bms/bms.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <!--<maxHistory>90</maxHistory>-->
+        <!--</rollingPolicy>-->
+
+        <!--<encoder>-->
+            <!--<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}][%-5level][%t]%logger{1} [%F%L] - %m%n</pattern>-->
+            <!--&lt;!&ndash;<pattern>[%d][%X{context.transactionId}][%thread][%-5level][%X{member.username}][%c{0}] %m%n</pattern>&ndash;&gt;-->
+        <!--</encoder>-->
+        <!--&lt;!&ndash;<filter class="ch.qos.logback.classic.filter.ThresholdFilter">&ndash;&gt;-->
+            <!--&lt;!&ndash;<level>debug</level>&ndash;&gt;-->
+        <!--&lt;!&ndash;</filter>&ndash;&gt;-->
+    <!--</appender>-->
+
+
+    <!--<appender name="TAILSFILEOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--<File>/app/tomcat/logs/clo/solution_batch_tails.out</File>-->
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> &lt;!&ndash; rollover daily &ndash;&gt;-->
+            <!--<FileNamePattern>/app/tomcat/logs/clo/solution_batch_tails.%d{yyyy-MM-dd}.log</FileNamePattern>-->
+            <!--<maxHistory>30</maxHistory> &lt;!&ndash; 30일 뒤에는 해당 파일 삭제 &ndash;&gt;-->
+        <!--</rollingPolicy>-->
+        <!--<encoder>-->
+            <!--<pattern>[%d][%X{context.transactionId}][%thread][%-5level][%X{member.username}][%c{0}] %m%n</pattern>-->
+        <!--</encoder>-->
+    <!--</appender>-->
+    <!--<appender name="ASYNCTAILSFILEOUT" class="ch.qos.logback.classic.AsyncAppender">-->
+        <!--<queueSize>100</queueSize>-->
+        <!--<includeCallerData>true</includeCallerData>-->
+        <!--<appender-ref ref="TAILSFILEOUT"/>-->
+    <!--</appender>-->
+    <!--<logger name="com.skplanet.solution" level="INFO" additivity="false">-->
+        <!--<appender-ref ref="ASYNCTAILSFILEOUT"/>-->
+    <!--</logger>-->
+
+
+    <!-- Application Loggers -->
+    <!--<logger name="study.java.stream" level="debug" additivity="false">-->
+        <!--<appender-ref ref="console"/>-->
+        <!--<appender-ref ref="FILE" />-->
+    <!--</logger>-->
+
+    <root level="info">
+        <appender-ref ref="console" />
+        <!--<appender-ref ref="FILE" />-->
+    </root>
+
+</configuration>
